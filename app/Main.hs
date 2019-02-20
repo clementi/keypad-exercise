@@ -1,12 +1,23 @@
 module Main where
 
+import Control.Monad (forM_)
+
 import Solution
 
+cases :: [(Keypad, String)]
+cases = [ ("", "123456789")
+        , ("4", "123456789")
+        , ("4", "918273645")
+        , ("45262", "192837465")
+        , ("777777777777", "987654321")
+        , ("2873468943752938", "789456123")
+        , ("324587Q9539333", "123789456")
+        , ("R", "132978645")
+        , ("ZT", "192837465")
+        ]
+
+runCase :: (String, Keypad) -> Either String Int
+runCase = uncurry totalDistance
+
 main = do
-  let pad = "987123645"
-  let validStr = "7635894353168834659896"
-  let invalidStr = "435786345Q34589347"
-  let validDist = totalDistance validStr pad
-  let invalidDist = totalDistance invalidStr pad
-  putStrLn $ "totalDistance('" ++ validStr ++ "', '" ++ pad ++ "') = " ++ show validDist
-  putStrLn $ "totalDistance('" ++ invalidStr ++ "', '" ++ pad ++ "') = " ++ show invalidDist
+  forM_ cases $ putStrLn . show . runCase
