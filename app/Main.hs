@@ -4,7 +4,7 @@ import Control.Monad (forM_)
 
 import Solution
 
-cases :: [(Keypad, String)]
+cases :: [(String, Keypad)]
 cases = [ ("", "123456789")
         , ("4", "123456789")
         , ("4", "918273645")
