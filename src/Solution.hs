@@ -4,7 +4,7 @@ import Control.Applicative (liftA2)
 import Control.Monad (join, sequence)
 import Data.Bifunctor (Bifunctor, bimap)
 import Data.Either.Utils (maybeToEither)
-import Data.List
+import Data.List (elemIndex)
 
 type Keypad = String
 type Location = (Int, Int)
@@ -24,4 +24,3 @@ location :: Keypad -> Char -> Either String Location
 location keypad c = coords <$> maybeToEither ("Invalid character " ++ show c) (elemIndex c keypad)
   where coords index = (index `div` size, index `mod` size)
         size = truncate $ sqrt $ fromIntegral $ length keypad
-
