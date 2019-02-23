@@ -16,9 +16,9 @@ totalDistance s keypad = sum <$> sequence dists
         locs = map (location keypad) s
 
 distance :: Location -> Location -> Int
-distance left right = (uncurry max) $ mapAbs $ diff left right
+distance left right = (uncurry max) $ pairAbs $ diff left right
   where diff a b = (fst a - fst b, snd a - snd b)
-        mapAbs = join bimap abs
+        pairAbs = join bimap abs
 
 location :: Keypad -> Char -> Either String Location
 location keypad c = coords <$> maybeToEither ("Invalid character " ++ show c) (elemIndex c keypad)
