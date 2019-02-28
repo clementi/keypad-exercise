@@ -2,7 +2,7 @@ module Solution (Keypad, totalDistance) where
 
 import Control.Applicative (liftA2)
 import Control.Monad (join, sequence)
-import Data.Bifunctor (Bifunctor, bimap)
+import Data.Bifunctor (bimap)
 import Data.Either.Utils (maybeToEither)
 import Data.List (elemIndex)
 
