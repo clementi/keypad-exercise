@@ -16,7 +16,7 @@ totalDistance s keypad = sum <$> sequence dists
         locs = map (location keypad) s
 
 distance :: Location -> Location -> Int
-distance left right = (uncurry max) $ pairAbs $ diff left right
+distance left right = uncurry max $ pairAbs $ diff left right
   where diff a b = (fst a - fst b, snd a - snd b)
         pairAbs = join bimap abs
 
