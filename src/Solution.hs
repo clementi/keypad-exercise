@@ -2,7 +2,7 @@ module Solution (Keypad, totalDistance) where
 
 import Control.Applicative (liftA2)
 import Control.Arrow ((***))
-import Control.Monad (join, sequence)
+import Control.Monad (sequence)
 import Data.Either.Utils (maybeToEither)
 import Data.List (elemIndex)
 
