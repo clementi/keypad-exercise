@@ -19,5 +19,6 @@ cases = [ ("", "123456789")
 runCase :: (String, Keypad) -> Either String Int
 runCase = uncurry totalDistance
 
+main :: IO ()
 main = do
   forM_ cases $ putStrLn . show . runCase
